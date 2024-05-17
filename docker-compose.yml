@@ -14,6 +14,16 @@ services:
     ports:
       - 5432:5432
 
+  mongo:
+    image: mongo:7.0.2
+    container_name: nestjs-database-connection-mongo-db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - nestjs_mongo_db:/data/db
+
+
   adminer:
     image: adminer
     container_name: nestjs-database-connection-adminer
@@ -23,3 +33,4 @@ services:
 
 volumes:
   nestjs_postgres_db:
+  nestjs_mongo_db:
